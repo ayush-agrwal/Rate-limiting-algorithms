@@ -1,0 +1,36 @@
+1. Token Bucket
+Concept:
+In the Token Bucket algorithm, tokens are added to a bucket at a constant rate. Each request must acquire a token from the bucket to be processed. If the bucket is empty, the request is denied or delayed.
+
+Example:
+Suppose you have a bucket with a capacity of 10 tokens and tokens are added at a rate of 1 token per second. If a request arrives and there are tokens in the bucket, it proceeds. If the bucket is empty, the request must wait until tokens are available.
+
++---------------------+
+|  Token Bucket       |
+|   (Capacity: 10)    |
+|   (Rate: 1/sec)     |
++---------------------+
+         |
+         v
++---------------------+
+|  Check Token Bucket |
+|   If tokens > 0     |
++---------------------+
+         |
+         v
++---------------------+    Yes
+|  Process Request    |
++---------------------+
+         |
+         v
++---------------------+
+|  Remove Token       |
++---------------------+
+         |
+         v
++---------------------+
+|  Wait for Token     |
++---------------------+
+         |
+         v
+  No <---------------+
