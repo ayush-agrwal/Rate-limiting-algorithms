@@ -10,3 +10,34 @@ Disadvantages:
 
 Request Loss: Excess requests are discarded, which may not be acceptable in all scenarios.
 Limited Flexibility: Doesn’t handle bursts well as requests are dropped if the bucket overflows
+
++---------------------+
+|  Leaky Bucket       |
+|   (Capacity: 10)    |
++---------------------+
+         |
+         v
++---------------------+
+|  Add Request to Queue |
++---------------------+
+         |
+         v
++---------------------+
+|  Check Queue Size  |
++---------------------+
+         |
+         v
++---------------------+
+|  Queue Overflow?   |
++---------------------+
+         |
+         v
+  Yes <---------------+
+|  Discard Request    |
++---------------------+
+         |
+         v
++---------------------+    No
+|  Process Request    |
+|  (Leak Rate: 1/sec)|
++---------------------+
