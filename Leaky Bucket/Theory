@@ -1,0 +1,12 @@
+Leaky Bucket
+Concept:
+The Leaky Bucket algorithm processes requests at a constant rate. Excess requests are discarded if the queue (bucket) is full, regardless of the rate at which they arrive.
+
+Advantages:
+
+Smooth Out Traffic: Ensures a consistent rate of request processing.
+Simplicity: Straightforward to implement using a queue.
+Disadvantages:
+
+Request Loss: Excess requests are discarded, which may not be acceptable in all scenarios.
+Limited Flexibility: Doesn’t handle bursts well as requests are dropped if the bucket overflows
