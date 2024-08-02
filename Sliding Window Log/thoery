@@ -1,0 +1,43 @@
+Sliding Window Log
+Concept:
+The Sliding Window Log algorithm maintains a log of timestamps for each request. It checks whether the number of requests in the recent time window exceeds the limit.
+
+Advantages:
+
+Precise: Tracks individual request timestamps for accurate rate limiting.
+Adaptable: Handles varying traffic patterns better.
+Disadvantages:
+
+Memory Usage: Requires storage of request timestamps, which can be memory-intensive.
+Complexity: More complex to implement and manage compared to simpler algorithms.
+
++---------------------+
+|  Sliding Window Log |
+|  (Limit: 100/min)   |
++---------------------+
+         |
+         v
++---------------------+
+|  Record Timestamp   |
++---------------------+
+         |
+         v
++---------------------+
+|  Count Requests in  |
+|  Last Minute        |
++---------------------+
+         |
+         v
++---------------------+
+|  Requests > Limit?  |
++---------------------+
+         |
+         v
+  Yes <---------------+
+|  Deny Request       |
++---------------------+
+         |
+         v
++---------------------+    No
+|  Process Request    |
++---------------------+
