@@ -1,0 +1,39 @@
+Sliding Window Counter
+Concept:
+The Sliding Window Counter algorithm divides the time window into smaller intervals (buckets). It maintains counts for each interval and checks if the total count in the sliding window exceeds the limit.
+
+Advantages:
+
+Handles Bursts: Better at managing bursts than fixed window algorithms.
+Efficient Counting: Uses a sliding window to manage request counts more efficiently.
+Disadvantages:
+
+Complexity: More complex to implement compared to fixed window counter.
+Potential Overhead: Requires managing multiple counters and sliding the window.
+
++---------------------+
+| Sliding Window Counter |
+|  (Limit: 100/min)   |
+|  (Window Size: 10s) |
++---------------------+
+         |
+         v
++---------------------+
+|  Count Requests in  |
+|  Current Interval   |
++---------------------+
+         |
+         v
++---------------------+
+|  Requests > Limit?  |
++---------------------+
+         |
+         v
+  Yes <---------------+
+|  Deny Request       |
++---------------------+
+         |
+         v
++---------------------+    No
+|  Process Request    |
++---------------------+
