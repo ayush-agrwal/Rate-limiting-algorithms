@@ -1,0 +1,38 @@
+
+Concept:
+The Fixed Window Counter algorithm counts the number of requests in a fixed time window. If the count exceeds the limit, further requests are denied until the window resets.
+
+Advantages:
+
+Easy to Implement: Simple counting mechanism.
+Predictable: Limits are clear and easy to understand.
+Disadvantages:
+
+Burstiness: Requests right before the window resets can exceed the limit.
+Rigid: Does not adapt well to varying traffic patterns.
+
++---------------------+
+|  Fixed Window       |
+|  (Limit: 100/min)   |
++---------------------+
+         |
+         v
++---------------------+
+|  Count Requests     |
+|  in Current Window  |
++---------------------+
+         |
+         v
++---------------------+
+|  Requests > Limit?  |
++---------------------+
+         |
+         v
+  Yes <---------------+
+|  Deny Request       |
++---------------------+
+         |
+         v
++---------------------+    No
+|  Process Request    |
++---------------------+
